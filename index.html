@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no " >
+    <title>Elementos flexibles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1 class="titulo">ELEMENTOS FLEXIBLES</h1>
+        <!-- order -->
+        <div class="card">
+            <h2 class="titulo">MODIFICAR EL ORDEN DE LOS ELEMENTOS FLEXIBLES</h2>
+            <p>Los elementos flexibles se disponen de forma predeterminada en el mismo orden en que aparecen en el documento de origen. La propiedad 
+                <strong class="importante">order</strong> se puede utilizar para cambiar este orden. El valor de esta propiedad es un numero.</p>            
+        </div>
+        <div class="card">
+            <h3>numero</h3>    
+            <ul>
+                <li><strong>Nota: </strong>Inicialmente cada elemento flexible tiene asociado un numero <strong class="importante">order</strong> igual a cero (0).</li>
+                <li>El numero <strong class="importante">order</strong> de un elemento flexible puede modificarse usando la propiedad <strong class="importante">order. </strong></li>
+                <li>Los elementos se acomodan empezando por el que tiene el numero <stong class="importante">order</stong> mas bajo.</li>
+                <li>Los elementos con el mismo <strong class="importante">order</strong> se presentan en el orden en que aparecen en el documento de origen.</li>
+            </ul>
+            <h3 class="titulo">REGLA CSS</h3>
+            <div class="resumen">
+                <div class="html">
+                    <pre>&lt;div class="contenedor"&gt;<br>   &lt;div class="flex-item-1"&gt;E1&lt;/div&gt;<br>   &lt;div class="flex-item-2"&gt;E2&lt;/div&gt;<br>   &lt;div class="flex-item-3"&gt;E3&lt;/div&gt;<br>   &lt;div class="flex-item-4"&gt;E4&lt;/div&gt;<br>   &lt;div class="flex-item-5"&gt;E5&lt;/div&gt;<br>&lt;/div&gt;</pre>
+                </div>
+                <div class="css">
+                    <pre>.contenedor{<br>   display: flex;<br>   flex-direction: row;<br>   flex-wrap: nowrap;<br>   align-content: stretch;<br>   justify-content: flex-start;<br>   align-items: stretch;<br>}</pre>
+                    <pre>.flex-item-1 { <strong class="importante">order: -3;</strong> }</pre>
+                    <pre>.flex-item-2 { <strong class="importante">order:  0;</strong> }</pre>
+                    <pre>.flex-item-3 { <strong class="importante">order: -5;</strong> }</pre>
+                    <pre>.flex-item-4 { <strong class="importante">order: -2;</strong> }</pre>
+                    <pre>.flex-item-5 { <strong class="importante">order: -4;</strong> }</pre>
+                    <pre>.flex-item-6 { <strong class="importante">order: -1;</strong> }</pre>
+                </div>
+                <div class="img">
+                    <img src="img/o-n.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+
+            <!-- <p class="nota"><strong>Nota: </strong>Inicialmente cada elemento flexible tiene asociado un numero <strong class="importante">order</strong> igual a cero (0). 
+                El numero <strong class="importante">order</strong> de un elemento flexible puede modificarse usando la propiedad <strong class="importante">order. </strong>
+                Los elementos se acomodan empezando por el que tiene el numero <stong class="importante">order</stong> mas bajo. Los elementos con el mismo 
+                <strong class="importante">order</strong> se presentan en el orden en que aparecen en el documento de origen.</p> -->
+            <h3 class="titulo">EJEMPLO</h3>
+            <div class="flex-container container-background-color fc-o-1">
+                <div class="flex-item-1 item-width-150 background-color-1  item-height-50">E 1</div>
+                <div class="flex-item-2 item-width-150 background-color-2  item-height-100">E 2</div>
+                <div class="flex-item-3 item-width-150 background-color-3  item-height-60">E 3</div>
+                <div class="flex-item-4 item-width-150 background-color-4  item-height-70">E 4</div>
+                <div class="flex-item-5 item-width-150 background-color-5  item-height-50">E 5</div>
+                <div class="flex-item-6 item-width-150 background-color-6  item-height-90">E 6</div>                    
+            </div>
+        </div>
+        <!-- flex-basis -->
+        <div class="card">
+            <h2 class="titulo">TAMAÑO INICIAL FLEXIBLE</h2>
+            <p> La propiedad <strong class="importante">flex-basis</strong> permite definir el <i class="titulo">
+                tamaño principal inicial flexible</i> de un elemento flexible, antes de que el elemento flexible 
+                cambie de tamaño para adaptarse al tamaño de su contenedor flexible. 
+                Si el valor de la propiedad box-sizing es border-box el <i class="titulo">tamaño principal</i> 
+                incluye el relleno y el borde del elemento.
+            </p>
+            <h4>Valores posibles:</h4>
+            <span class="importante">flex-basis: auto; [Valor por defecto].</span> 
+            <ul>            
+                <h5>Eje principal horizontal</h5>
+                <li>
+                El <i class="titulo">tamaño principal inicial flexible</i> es el width del elemento 
+                flexible. 
+                </li>
+                <li>
+                    Si el width del elemento no esta definido el <i class="titulo">tamaño principal inicial flexible</i> 
+                    es determinado por el navegador
+                </li>
+                <div>
+                    <img src="img/tamanioPrincipal1.png" alt="" class="tamanio">
+                </div>
+                
+                <h5>Eje principal vertical</h5>
+                <li>
+                    El <i class="titulo">tamaño principal inicial flexible</i> es el height del elemento 
+                    flexible. 
+                </li>
+                <li>
+                    Si el height del elemento no esta definido el <i class="titulo">tamaño principal inicial flexible</i> 
+                    es determinado por el navegador
+                </li>
+                <img src="img/tamanioPrincipal2.png" alt="" class="tamanio">
+                <!-- <div class="resumen">
+                    <div class="html">
+                        <h5>HTML</h5>
+                        <pre>
+    &lt;div class="contenedor"&gt;
+        &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+    &lt;/div&gt;
+                        </pre>                
+                    </div>
+                    <div class="css">
+                        <h5>CSS</h5>
+                        <pre>
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+    }
+                        </pre>
+                        <pre> 
+    .flex-item {
+        width: 200px; 
+        flex-basis: auto;
+    }
+                    </pre>
+                    </div>
+                </div> -->
+                
+                
+                
+                <!-- <li><strong class="importante">flex-basis: 100px;</strong>. Podemos especificar directamente el <i class="titulo">tamaño inicial flexible</i> usando 
+                    las mismas unidades usadas en la propiedad width (20%, 50px, 5vw, etc.)(</li>
+                    <div class="resumen">
+                        <div class="html">
+                            <h5>HTML</h5>
+                            <pre>
+        &lt;div class="contenedor"&gt;
+            &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+        &lt;/div&gt;
+                            </pre>                
+                        </div>
+                        <div class="css">
+                            <h5>CSS</h5>
+                            <pre>
+        .contenedor{
+            display: flex;
+            flex-direction: row;
+        }
+                            </pre>
+                            <pre> 
+        .flex-item {
+            flex-basis: 200px;
+        }
+                        </pre>
+                        </div>
+                    </div>
+                <p>Si el valor de la propiedad <strong class="importante">flex-basis</strong> es distinto de auto,  anula cualquier propiead width o height</p>    
+                <div class="resumen">
+                    <div class="html">
+                        <h5>HTML</h5>
+                        <pre>
+    &lt;div class="contenedor"&gt;
+        &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+    &lt;/div&gt;
+                        </pre>                
+                    </div>
+                    <div class="css">
+                        <h5>CSS</h5>
+                        <pre>
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+    }
+                        </pre>
+                        <pre> 
+    .flex-item {
+        flex-basis: 600px;
+        <del>width: 200px; </del> 
+    }
+                    </pre>
+                    </div>
+                </div>
+                <p>Si establecemos min-width o max-width, flex-basis pierde</p>
+                <div class="resumen">
+                    <div class="html">
+                        <h5>HTML</h5>
+                        <pre>
+    &lt;div class="contenedor"&gt;
+        &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+    &lt;/div&gt;
+                        </pre>                
+                    </div>
+                    <div class="css">
+                        <h5>CSS</h5>
+                        <pre>
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+    }
+                        </pre>
+                        <pre> 
+    .flex-item {
+        <del>flex-basis: 200px;</del>
+        min-width: 600px;
+    }
+                    </pre>
+                    </div>
+                </div> -->
+
+
+            </ul>
+        
+            <span class="importante">flex-basis: Un numero seguido de una unidad 
+                absoluta tal como px o un porcentaje del tamaño del contenedor
+                flexible.</span> 
+            <ul>
+                <h5>Eje principal horizontal</h5>
+                <li>
+                El valor de la propiedad flex-basis determina el <i class="titulo">tamaño principal inicial flexible</i>
+                y prevalece sobre la propiedad width.
+                </li>
+                <li>
+                    Los valores negativos no son permitidos
+                </li>
+              
+                <img src="img/tamanioPrincipal1.png" alt="" class="tamanio">
+              
+                
+                <h5>Eje principal vertical</h5>
+                <li>
+                    El valor de la propiedad flex-basis determina el <i class="titulo">tamaño principal inicial flexible</i>
+                    y prevalece sobre la propiedad height.
+                </li>
+                <li>
+                    Los valores negativos no son permitidos.
+                </li>
+                <img src="img/tamanioPrincipal2.png" alt="" class="tamanio">
+                <!-- <div class="resumen">
+                    <div class="html">
+                        <h5>HTML</h5>
+                        <pre>
+    &lt;div class="contenedor"&gt;
+        &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+    &lt;/div&gt;
+                        </pre>                
+                    </div>
+                    <div class="css">
+                        <h5>CSS</h5>
+                        <pre>
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+    }
+                        </pre>
+                        <pre> 
+    .flex-item {
+        width: 200px; 
+        flex-basis: auto;
+    }
+                    </pre>
+                    </div>
+                </div>
+                <p>El <i class="titulo">tamaño inicial flexible</i> es el alto del elemento flexible si el eje principal es vertical.</p>    
+                <p>Si el elemento flexible no tiene especificado un ancho o un alto, el <i class="titulo">tamaño inicial flexible</i> se ajustara al contenido</p>
+                
+                <li><strong class="importante">flex-basis: 100px;</strong>. Podemos especificar directamente el <i class="titulo">tamaño inicial flexible</i> usando 
+                    las mismas unidades usadas en la propiedad width (20%, 50px, 5vw, etc.)(</li>
+                    <div class="resumen">
+                        <div class="html">
+                            <h5>HTML</h5>
+                            <pre>
+        &lt;div class="contenedor"&gt;
+            &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+        &lt;/div&gt;
+                            </pre>                
+                        </div>
+                        <div class="css">
+                            <h5>CSS</h5>
+                            <pre>
+        .contenedor{
+            display: flex;
+            flex-direction: row;
+        }
+                            </pre>
+                            <pre> 
+        .flex-item {
+            flex-basis: 200px;
+        }
+                        </pre>
+                        </div>
+                    </div>
+                <p>Si el valor de la propiedad <strong class="importante">flex-basis</strong> es distinto de auto,  anula cualquier propiead width o height</p>    
+                <div class="resumen">
+                    <div class="html">
+                        <h5>HTML</h5>
+                        <pre>
+    &lt;div class="contenedor"&gt;
+        &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+    &lt;/div&gt;
+                        </pre>                
+                    </div>
+                    <div class="css">
+                        <h5>CSS</h5>
+                        <pre>
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+    }
+                        </pre>
+                        <pre> 
+    .flex-item {
+        flex-basis: 600px;
+        <del>width: 200px; </del> 
+    }
+                    </pre>
+                    </div>
+                </div>
+                <p>Si establecemos min-width o max-width, flex-basis pierde</p>
+                <div class="resumen">
+                    <div class="html">
+                        <h5>HTML</h5>
+                        <pre>
+    &lt;div class="contenedor"&gt;
+        &lt;div class="flex-item"&gt;E1&lt;/div&gt;
+    &lt;/div&gt;
+                        </pre>                
+                    </div>
+                    <div class="css">
+                        <h5>CSS</h5>
+                        <pre>
+    .contenedor{
+        display: flex;
+        flex-direction: row;
+    }
+                        </pre>
+                        <pre> 
+    .flex-item {
+        <del>flex-basis: 200px;</del>
+        min-width: 600px;
+    }
+                    </pre>
+                    </div>
+                </div> -->
+            </ul>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Propiedades</th>
+                    <th colspan="2">Limites del tamaño principal</th>
+                    <th rowspan="2">Tamaño principal</th>            
+                </tr>
+                <tr>
+                    <th>width</th>
+                    <th>flex-basis</th>
+                    <th>min-width</th>
+                    <th>max-width</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>_</th>
+                    <th>_</th>
+                    <th>_</th>
+                    <th>_</th>
+                    <th>Determinado por el navegador</th>
+                </tr>
+                <tr>
+                    <th>_</th>
+                    <th>_</th>
+                    <th>_</th>
+                    <th>300px</th>
+                    <th>Determinado por el navegador</th>
+                </tr>
+                <tr>
+                    <th>_</th>
+                    <th>_</th>
+                    <th>100px</th>
+                    <th>_</th>
+                    <th>100px</th>
+                </tr>
+                <tr>
+                    <th>_</th>
+                    <th>_</th>
+                    <th>100px</th>
+                    <th>300px</th>
+                    <th>100px</th>
+                </tr>
+                
+                <tr>
+                    <th>200px</th>
+                    <th>_</th>
+                    <th>100px</th>
+                    <th>300px</th>
+                    <th>200px</th>
+                </tr>
+                <tr>
+                    <th>50px</th>
+                    <th>_</th>
+                    <th>100px</th>
+                    <th>300px</th>
+                    <th>100px</th>
+                </tr>
+                <tr>
+                    <th>400px</th>
+                    <th>_</th>
+                    <th>100px</th>
+                    <th>300px</th>
+                    <th>300px</th>
+                </tr>
+
+                <tr>
+                    <th>No importa</th>
+                    <th>200px</th>
+                    <th>100px</th>
+                    <th>300px</th>
+                    <th>200px</th>
+                </tr>
+                <tr>
+                    <th>No importa</th>
+                    <th>50px</th>
+                    <th>100px</th>
+                    <th>300px</th>
+                    <th>100px</th>
+                </tr>
+                <tr>
+                    <th>No importa</th>
+                    <th>400px</th>
+                    <th>100px</th>
+                    <th>300px</th>
+                    <th>300px</th>
+                </tr>
+               
+
+            </tbody>
+            
+        </table>
+        <!-- <h2 class="titulo">TAMAÑO INICIAL</h2>
+        <p> La propiedad <strong class="importante">flex-basis</strong> permite definir el tamaño de un elemento flexible a lo largo del eje principal del contenedor flexible.</p>
+        <span><strong>Valores posibles:</strong></span>
+        <ul>            
+            <li><strong class="importante">flex-basis: auto;</strong> [Valor por defecto]. Recupera el main-size del elemento flexible. Si el eje principal
+            es horizontal el main-size es el width del elemento flexible; si el eje principal es vertical el main-size sera el height del
+            elemento flexible</li>
+            <div class="resumen">
+                <div class="html">
+                    <pre> &lt;span class="item color1" style="width: 200px; flex-basis: auto;"&gt;1&lt;/span &gt; </pre>
+                </div>
+            </div>
+
+
+            <li><strong class="importante">flex-basis: content;</strong>. La palabra clave content significa "dimensionarlo según el contenido del elemento flexible".
+            Evitar usar este valor porque aun no esta soportado en la mayoria de los navegadres.</li>
+            <li><strong class="importante">flex-basis: 100px;</strong>.Una longitud (20%, 5rem, etc.)(</li>
+        </ul> -->
+        <div class="card">
+            <h3 class="titulo">REGLA CSS</h3>
+            <div class="resumen">
+                <div class="html">
+                    <pre>&lt;div class="contenedor"&gt;<br>   &lt;div class="flex-item-1"&gt;E1&lt;/div&gt;<br>   &lt;div class="flex-item-2"&gt;E2&lt;/div&gt;<br>   &lt;div class="flex-item-3"&gt;E3&lt;/div&gt;<br>&lt;/div&gt;</pre>
+                </div>
+                <div class="css">
+                    <pre>.contenedor{<br>   display: flex;<br>   flex-direction: row;<br>   flex-wrap: nowrap;<br>   align-content: stretch;<br>   justify-content: flex-start;<br>   align-items: stretch;<br>}</pre>
+                    <pre>.flex-item-1 { <strong class="importante">flex-basis: 100px;</strong> }</pre>
+                    <pre>.flex-item-2 { <strong class="importante">flex-basis: 200px;</strong> }</pre>
+                    <pre>.flex-item-3 { <strong class="importante">flex-basis: 100px;</strong> }</pre>                    
+                </div>
+                <div class="img">
+                    <img src="img/fb-100.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+
+            
+            <h3 class="titulo">EJEMPLO</h3>
+            <div class="flex-container container-background-color fc-fb-1">
+                <div class="flex-item-1 background-color-1  item-height-100">E 1</div>
+                <div class="flex-item-2 background-color-2  item-height-100">E 2</div>
+                <div class="flex-item-3 background-color-3  item-height-100">E 3</div>
+            </div>
+        </div>
+        <!-- flex-grow     -->
+        <div class="card">
+            <h2 class="titulo">FACTOR DE CRECIMIENTO</h2>
+            <p> La propiedad <strong class="importante">flex-grow</strong> especifica el factor de crecimiento de un elemento flexible, a lo largo del eje principal. El 
+            factor de crecimiento determina cuánto crecerá el elemento flexible, en relación con el resto de elementos flexibles en el contenedor flexible cuando 
+            se distribuya el espacio libre del contenedor (El espacio libre es el tamaño del contenedor flexible menos el tamaño de todos los elementos flexibles juntos).</p>
+            <span><strong>Valores posibles:</strong></span>
+            <ul>
+                <li><strong class="importante">flex-grow: 0;</strong> [Valor por defecto]. El elemento flexible no crece</li>
+                <li><strong class="importante">flex-grow: n;</strong>. Donde n es numero no negativo.</li>
+            </ul>
+        </div>
+        
+
+        <div class="card">
+            <h3 class="titulo">REGLA CSS</h3>
+            <div class="resumen">
+                <div class="html">
+                    <pre>&lt;div class="contenedor"&gt;<br>   &lt;div class="flex-item-1"&gt;E1&lt;/div&gt;<br>   &lt;div class="flex-item-2"&gt;E2&lt;/div&gt;<br>   &lt;div class="flex-item-3"&gt;E3&lt;/div&gt;<br>&lt;/div&gt;</pre>
+                </div>
+                <div class="css">
+                    <pre>.contenedor{<br>   display: flex;<br>   flex-direction: row;<br>   flex-wrap: nowrap;<br>   align-content: stretch;<br>   justify-content: flex-start;<br>   align-items: stretch;<br>}</pre>
+                    <pre>.flex-item-1 {<br>   flex-basis: 150px;<br>   <strong class="importante">flex-grow: 1;</strong><br>}</pre>                    
+                    <pre>.flex-item-1 {<br>   flex-basis: 150px;<br>   <strong class="importante">flex-grow: 2;</strong><br>}</pre>                    
+                    <pre>.flex-item-1 {<br>   flex-basis: 150px;<br>   <strong class="importante">flex-grow: 1;</strong><br>}</pre>                    
+                </div>
+                <div class="img">
+                    <img src="img/fg-n.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+
+            <p class="nota"><strong>Nota: </strong> Si todos los elementos tienen <strong class="importante">flex-grow</strong> establecido en 1, el espacio restante en el contenedor se distribuirá por igual 
+                a todos los elementos flexibles. Si uno de los elementos flexibles tiene un valor de 2, este ocuparía el doble del espacio restante que los demás. Notar que 
+                cuando se omite, el valor por defecto es cero (0).</p>
+            <h2 class="titulo">EJEMPLO</h2>
+            <h3 class="titulo">CONFIGURACIÓN INICIAL</h3>
+            <div class="flex-container container-background-color fc-fg-1">
+                <div class="flex-item-1 background-color-1  item-height-100">E 1</div>
+                <div class="flex-item-2 background-color-2  item-height-100">E 2</div>
+                <div class="flex-item-3 background-color-3  item-height-100">E 3</div>
+            </div>
+            <h3 class="titulo">CONFIGURACIÓN DESEADA</h3>
+            <div class="flex-container container-background-color fc-fg-2">
+                <div class="flex-item-1  background-color-1  item-height-100">E 1</div>
+                <div class="flex-item-2  background-color-2  item-height-100">E 2</div>
+                <div class="flex-item-3  background-color-3  item-height-100">E 3</div>
+            </div>
+        </div>
+
+
+        <!-- flex-shrink -->
+        <div class="card">
+            <h2 class="titulo">FACTOR DE CONTRACCION</h2>
+            <p>La propiedad <strong class="importante">flex-shrink</strong> especifica el factor
+               de contracción de un elemento flexible, a lo largo del eje principal.
+               El factor de contracción determina cuanto se contraera el elemento 
+               flexible, en relación con el resto de elementos flexibles, cuando 
+               la suma de los tamaños principales de los elementos flexibles sea 
+               mayor al tamaño principal del contenedor flexible.</p>
+            <span><strong>Valores posibles:</strong></span>
+            <ul>
+                <li><strong class="importante">flex-shrink: 1;</strong> [Valor por defecto].</li>
+                <li><strong class="importante">flex-shrink: 0;</strong> Impide que el elemento flexible se encoja.</li>
+                <li><strong class="importante">flex-shrink: n;</strong>. Donde n es numero no negativo.</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3 class="titulo">REGLA CSS</h3>
+            <div class="resumen">
+                <div class="html">
+                    <pre>&lt;div class="contenedor"&gt;<br>   &lt;div class="flex-item-1"&gt;E1&lt;/div&gt;<br>   &lt;div class="flex-item-2"&gt;E2&lt;/div&gt;<br>   &lt;div class="flex-item-3"&gt;E3&lt;/div&gt;<br>&lt;/div&gt;</pre>
+                </div>
+                <div class="css">
+                    <pre>.contenedor{<br>   display: flex;<br>   flex-direction: row;<br>   flex-wrap: nowrap;<br>   align-content: stretch;<br>   justify-content: flex-start;<br>   align-items: stretch;<br>}</pre>
+                    <pre>.flex-item-1 {<br>   flex-basis: 600px; <br>   <strong class="importante">flex-shrink: 2;</strong><br> }</pre>
+                    <pre>.flex-item-2 {<br>   flex-basis: 600px; <br>   <strong class="importante">flex-shrink: 1;</strong> [Valor por defecto]<br> }</pre>
+                    <pre>.flex-item-3 {<br>   flex-basis: 600px; <br>   <strong class="importante">flex-shrink: 2;</strong><br> }</pre>
+                </div>
+                <div class="img">
+                    <img src="img/fs-1.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+            <p class="nota"><strong>Nota: </strong>.</p>
+            <h3 class="titulo">EJEMPLO</h3>
+            <div class="flex-container container-background-color fc-fs-2">
+                <div class="flex-item-1 background-color-4  item-height-100">E 1</div>
+                <div class="flex-item-2 background-color-5  item-height-100">E 2</div>
+                <div class="flex-item-3 background-color-6  item-height-100">E 3</div>
+            </div>
+        </div>
+
+        <!-- shorthand: flex -->
+        <h2 class="titulo">SHORTHAND (RECOMENDADO)</h2>
+        <p>La propiedad <strong class="importante">flex</strong> especifica los factores flex: flex-grow, flex-shrink y flex-basis.</p>
+       
+        <span><strong>Valor predeterminado:</strong></span>
+        <ul>            
+            <li><strong class="importante">flex: 0 1 auto</strong> [Valor por defecto].</li>
+        </ul>
+
+        <span><strong>Valores comunes:</strong></span>
+        <ul>
+            <li><strong class="importante">flex: initial;</strong> [flex: 0 1 auto]</li>
+            <li><strong class="importante">flex: auto;</strong> [flex: 1 1 auto]</li>
+            <li><strong class="importante">flex: none;</strong> [flex: 0 0 auto]</li>
+            <li><strong class="importante">flex: n;</strong> [flex: n 1 0%]</li>
+        </ul>
+
+        <div class="card">
+            <h3 class="titulo">REGLA CSS</h3>
+            <div class="resumen">
+                <div class="html">
+                    <pre>&lt;div class="contenedor"&gt;<br>   &lt;div class="flex-item-1"&gt;E1&lt;/div&gt;<br>   &lt;div class="flex-item-2"&gt;E2&lt;/div&gt;<br>   &lt;div class="flex-item-3"&gt;E3&lt;/div&gt;<br>&lt;/div&gt;</pre>
+                </div>
+                <div class="css">
+                    <pre>.contenedor{<br>   display: flex;<br>   flex-direction: row;<br>   flex-wrap: nowrap;<br>   align-content: stretch;<br>   justify-content: flex-start;<br>   align-items: stretch;<br>}</pre>
+                    <pre>.flex-item-1 { <strong class="importante">flex: 2 1 150px;</strong> }</pre>
+                    <pre>.flex-item-2 { <strong class="importante">flex: 3 1 150px;</strong> }</pre>
+                    <pre>.flex-item-3 { <strong class="importante">flex: 2 1 150px;</strong> }</pre>
+                </div>
+                <div class="img">
+                    <img src="img/f-123.png" alt="" class="img-fluid">
+                </div>
+            </div>
+
+
+            <p class="nota"><strong>Nota: </strong>.</p>
+            <h3 class="titulo">EJEMPLO</h3>
+            <div class="flex-container container-background-color fc-f-1">
+                <div class="flex-item-1 background-color-1  item-height-50">E 1</div>
+                <div class="flex-item-2 background-color-2  item-height-100">E 2</div>
+                <div class="flex-item-3 background-color-3  item-height-60">E 3</div>
+                <div class="flex-item-4 background-color-4  item-height-70">E 4</div>                
+            </div>
+        </div>
+
+
+      
+        <h2 class="titulo">EJERCICIO</h2>
+        <div class="card">
+            <img src="img/ejercicio1.png" alt="">
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    </div>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
